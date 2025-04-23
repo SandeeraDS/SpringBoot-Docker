@@ -1,5 +1,6 @@
 package com.ds.springbootdocker.utils;
 
+import com.ds.springbootdocker.beans.StudentBean;
 import com.ds.springbootdocker.dtos.StudentDto;
 import com.ds.springbootdocker.exceptions.StudentRuntimeException;
 
@@ -61,7 +62,7 @@ public class StudentData {
     }
 
     public static List<StudentDto> getAllStudents() {
-          return new ArrayList<>(studentData.values());
+        return new ArrayList<>(studentData.values());
     }
 
     public static StudentDto getStudentById(long id) {
@@ -80,6 +81,31 @@ public class StudentData {
         } else {
             throw new StudentRuntimeException("Student not found.");
         }
+    }
+
+    public static StudentDto populateStudentDto(StudentBean studentBean) {
+        StudentDto studentDto = new StudentDto();
+        studentDto.setStudentId(studentBean.getStudentId());
+        studentDto.setFirstName(studentBean.getFirstName());
+        studentDto.setLastName(studentBean.getLastName());
+        studentDto.setGrade(studentBean.getGrade());
+        return studentDto;
+    }
+
+    public static StudentBean populateStudentBean(StudentDto studentDto) {
+        StudentBean studentBean = new StudentBean();
+        studentBean.setStudentId(studentDto.getStudentId());
+        studentBean.setFirstName(studentDto.getFirstName());
+        studentBean.setLastName(studentDto.getLastName());
+        studentBean.setGrade(studentDto.getGrade());
+        return studentBean;
+    }
+
+    public static StudentBean updateStudentBean(StudentBean studentBean,StudentDto studentDto) {
+        studentBean.setFirstName(studentDto.getFirstName());
+        studentBean.setLastName(studentDto.getLastName());
+        studentBean.setGrade(studentDto.getGrade());
+        return studentBean;
     }
 
 
