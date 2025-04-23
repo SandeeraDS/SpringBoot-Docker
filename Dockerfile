@@ -3,8 +3,8 @@ LABEL authors="SandeeraJ"
 
 WORKDIR /app/springDockerDemo
 
-COPY target/SpringbootDocker-1.0.0.jar /app/springDockerDemo/SpringbootDocker-1.0.0.jar
+COPY target/SpringbootDocker-2.0.0.jar /app/springDockerDemo/SpringbootDocker-2.0.0.jar
 
-EXPOSE 8081
+EXPOSE 8082
 
-ENTRYPOINT ["java", "-jar","SpringbootDocker-1.0.0.jar"]
+ENTRYPOINT ["java", "-jar","SpringbootDocker-2.0.0.jar"]
